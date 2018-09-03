@@ -3,7 +3,12 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'bus-booking',
+    contentSecurityPolicy: {
+	     'style-src': "'self' 'unsafe-inline'",
+       'img-src':'self data:'
+     },
     environment: environment,
+    podModulePrefix: 'bus-booking/pods',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
