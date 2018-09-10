@@ -1,0 +1,206 @@
+<div class='container-fixed'>
+  <div class='row'>
+  <div class='col'><img src="assets/images/available.png" height="20" width="20">Unreserved</div>
+  <div class='col'><img src="assets/images/unavailable.png" height="20" width="20">Reserved</div>
+  <div class='col'><img src="assets/images/ladies.png" height="20" width="20">Ladies</div>
+  </div>
+  <hr>
+  <div class='row'>
+    {{#if isUpper}}
+    <div class='col-4'>
+      Upper deck
+      <div class='bus'>
+        <div id='upper-deck'>
+        </div>
+        <div class='row'>
+          <div class='col-6'>
+          <div class='left'>
+            <table>
+              {{#each upperRight as |row|}}
+                <tr>
+                 {{#each row as |col|}}
+                  <td>
+                    {{#if col.isBooked}}
+                      {{#if col.isFemale}}
+                        <img src="assets/images/SLfemale.png" height="85" width="40"><br>
+                        {{col.seatNo}}
+                      {{else}}
+                        <img src="assets/images/SLbooked.png" height="85" width="40"><br>
+                        {{col.seatNo}}
+                      {{/if}}
+                    {{else}}
+                      {{#if col.isSelected}}
+                        <img src="assets/images/SLcurrent.png" height="85" width="40" onclick={{action 'bookSeat' col}}><br>
+                        {{col.seatNo}}
+                      {{else}}
+                        <img src="assets/images/SL.png" height="85" width="40" onclick={{action 'bookSeat' col}}><br>
+                        {{col.seatNo}}
+                      {{/if}}
+                    {{/if}}
+                  </td>
+                 {{/each}}
+                </tr>
+             {{/each}}
+            </table>
+          </div>
+        </div>
+        <div class='col-6'>
+          <div class='right'>
+            <table>
+              {{#each upperLeft as |row|}}
+                <tr>
+                 {{#each row as |col|}}
+                   <td>
+                     {{#if col.isBooked}}
+                       {{#if col.isFemale}}
+                         <img src="assets/images/SLfemale.png" height="85" width="40"><br>
+                         {{col.seatNo}}
+                       {{else}}
+                         <img src="assets/images/SLbooked.png" height="85" width="40"><br>
+                         {{col.seatNo}}
+                       {{/if}}
+                     {{else}}
+                        {{#if col.isSelected}}
+                          <img src="assets/images/SLcurrent.png" height="85" width="40" onclick={{action 'bookSeat' col}}><br>
+                          {{col.seatNo}}
+                        {{else}}
+                          <img src="assets/images/SL.png" height="85" width="40" onclick={{action 'bookSeat' col}}><br>
+                          {{col.seatNo}}
+                        {{/if}}
+                     {{/if}}
+                   </td>
+                 {{/each}}
+                </tr>
+             {{/each}}
+            </table>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    <div class='col-4'>
+      Lower Deck
+      <div class='bus'>
+
+        <div class='row'>
+          <div class='col-6'>
+          <div class='left'>
+            <table>
+              {{#each lowerRight as |row|}}
+                <tr>
+                 {{#each row as |col|}}
+                  {{#if col.isSleeper}}
+                     <td>
+                       {{#if col.isBooked}}
+                         {{#if col.isFemale}}
+                           <img src="assets/images/SLfemale.png" height="85" width="40"><br>
+                           {{col.seatNo}}
+                         {{else}}
+                           <img src="assets/images/SLbooked.png" height="85" width="40"><br>
+                           {{col.seatNo}}
+                         {{/if}}
+                       {{else}}
+                          {{#if col.isSelected}}
+                            <img src="assets/images/SLcurrent.png" height="85" width="40" onclick={{action 'bookSeat' col}}><br>
+                            {{col.seatNo}}
+                          {{else}}
+                            <img src="assets/images/SL.png" height="85" width="40" onclick={{action 'bookSeat' col}}><br>
+                            {{col.seatNo}}
+                          {{/if}}
+                       {{/if}}
+                     </td>
+                   {{else}}
+                     <td>
+                       {{#if col.isBooked}}
+                         {{#if col.isFemale}}
+                           <img src="assets/images/STfemale.png" height="35" width="35"><br>
+                           {{col.seatNo}}
+                         {{else}}
+                           <img src="assets/images/STbooked.png" height="35" width="35"><br>
+                           {{col.seatNo}}
+                         {{/if}}
+                       {{else}}
+                          {{#if col.isSelected}}
+                            <img src="assets/images/STcurrent.png" height="35" width="35" onclick={{action 'bookSeat' col}}><br>
+                            {{col.seatNo}}
+                          {{else}}
+                            <img src="assets/images/ST.png" height="35" width="35" onclick={{action 'bookSeat' col}}><br>
+                            {{col.seatNo}}
+                          {{/if}}
+                       {{/if}}
+                     </td>
+                   {{/if}}
+                 {{/each}}
+                </tr>
+             {{/each}}
+            </table>
+          </div>
+        </div>
+        <div class='col-6'>
+          <div class='right'>
+            <table>
+              {{#each lowerLeft as |row|}}
+                <tr>
+                 {{#each row as |col|}}
+                 {{#if col.isSleeper}}
+                     <td>
+                       {{#if col.isBooked}}
+                         {{#if col.isFemale}}
+                           <img src="assets/images/SLfemale.png" height="85" width="40"><br>
+                           {{col.seatNo}}
+                         {{else}}
+                           <img src="assets/images/SLbooked.png" height="85" width="40"><br>
+                           {{col.seatNo}}
+                         {{/if}}
+                       {{else}}
+                          {{#if col.isSelected}}
+                            <img src="assets/images/SLcurrent.png" height="85" width="40" onclick={{action 'bookSeat' col}}><br>
+                            {{col.seatNo}}
+                          {{else}}
+                            <img src="assets/images/SL.png" height="85" width="40" onclick={{action 'bookSeat' col}}><br>
+                            {{col.seatNo}}
+                          {{/if}}
+                       {{/if}}
+                     </td>
+                   {{else}}
+                     <td>
+                       {{#if col.isBooked}}
+                         {{#if col.isFemale}}
+                           <img src="assets/images/STfemale.png" height="35" width="35"><br>
+                           {{col.seatNo}}
+                         {{else}}
+                           <img src="assets/images/STbooked.png" height="35" width="35"><br>
+                           {{col.seatNo}}
+                         {{/if}}
+                       {{else}}
+                          {{#if col.isSelected}}
+                            <img src="assets/images/STcurrent.png" height="35" width="35" onclick={{action 'bookSeat' col}}><br>
+                            {{col.seatNo}}
+                          {{else}}
+                            <img src="assets/images/ST.png" height="35" width="35" onclick={{action 'bookSeat' col}}><br>
+                            {{col.seatNo}}
+                          {{/if}}
+                       {{/if}}
+                     </td>
+                   {{/if}}
+                 {{/each}}
+                </tr>
+             {{/each}}
+            </table>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-3'>
+      <div id='selected-seats'>
+      </div>
+      <div id='fare'>
+      </div>
+      {{#if canProceed}}
+        <button class='btn btn-success' {{action 'book'}}>Proceed</button>
+      {{/if}}
+    </div>
+  </div>
+</div>

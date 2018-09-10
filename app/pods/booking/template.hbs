@@ -1,0 +1,49 @@
+<button {{action 'getSeats'}}>Seats</button>
+<div class="container" style="padding-top:50px">
+  <div  id='content'>
+  <div class="row">
+    <div class="col-9">
+    <div class="row">
+      <img src="assets/images/logo.png" height="60" width="150">
+      <div class='col'><h3>{{model.from}}->{{model.to}}</h3></div>
+      <div class="col"><h6>BookingID: {{model.id}}</h6><h6>Booking Date: {{model.date}}</h6></div>
+  </div>
+    <table class="table">
+      <tr>
+        <td><h3>Boarding</h3>{{model.boarding}}</td>
+        <td><h3>Dropping</h3>{{model.dropping}}</td>
+        <td><h3>Date</h3>{{model.departure}}</td>
+        <td><h3>Seats</h3>{{model.seats}}</td>
+        <td><h3>Bus.no</h3>{{model.bus}}</td>
+      </tr>
+    </table>
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>gender</th>
+        <th>DOB</th>
+        <th>Seat.No</th>
+        <th>seat type</th>
+        <th>Fare</th>
+      </tr>
+      {{#each model.passengers as |passenger|}}
+      <tr>
+        <td>{{passenger.name}}</td>
+        <td>{{passenger.gender}}</td>
+        <td>{{passenger.DOB}}</td>
+        <td>{{passenger.seatNo}}</td>
+        <td>{{passenger.type}}</td>
+        <td>{{passenger.fare}}</td>
+      </tr>
+      {{/each}}
+      <hr>
+      <tr><h5>Total Fare Rs.{{model.totalAmount}}</h5></tr>
+    </table>
+    <hr>
+    <p>For further queries and details contact:{{model.contact}} or email to support@travels.org</p>
+    <h6></h6>
+  </div>
+</div>
+</div>
+<button {{action 'exportPDF'}} class='btn-info'>exportPDF</button>
+</div>

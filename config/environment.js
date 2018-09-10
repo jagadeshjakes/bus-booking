@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'bus-booking',
     contentSecurityPolicy: {
 	     'style-src': "'self' 'unsafe-inline'",
-       'img-src':'self data:'
+       'img-src': "'self' * 'self' data: https:"
      },
     environment: environment,
     podModulePrefix: 'bus-booking/pods',
