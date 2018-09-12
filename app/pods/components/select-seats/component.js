@@ -13,17 +13,7 @@ export default Ember.Component.extend({
   seatsSelected:false,
   init(){
     this._super(...arguments);
-    var datas;
-    $.ajax({
-      type:"POST",
-      url:"/getseats",
-      async:false,
-      data:{busId:2,tripId:2},
-      success:function(data){
-        //console.log(data);
-        datas=data;
-      }
-    });
+    var datas=this.get('seats');
     var upperLeft=[];
     var upperRight=[];
     var lowerLeft=[];
@@ -60,6 +50,7 @@ export default Ember.Component.extend({
         }
       }
     });
+
     if(upperLeft.length===0 && upperRight.length===0){
       this.set('isUpper',false);
     }
@@ -170,14 +161,11 @@ export default Ember.Component.extend({
       var upperRight=this.get('upperRight');
       var lowerLeft=this.get('lowerLeft');
       var lowerRight=this.get('lowerRight');
-      //console.log(upperLeft);
       $.each(upperLeft,function(index){
         selected=selected.concat(upperLeft[index].filterBy('isSelected',true));
-        //console.log(selected);
       });
       $.each(upperRight,function(index){
         selected=selected.concat(upperRight[index].filterBy('isSelected',true));
-        //console.log(selected);
       });
       $.each(lowerLeft,function(index){
         selected=selected.concat(lowerLeft[index].filterBy('isSelected',true));
@@ -185,7 +173,9 @@ export default Ember.Component.extend({
       $.each(lowerRight,function(index){
         selected=selected.concat(lowerRight[index].filterBy('isSelected',true));
       });
-      console.log(selected);
+      let select=this.get('selectPass');
+      select(selected);
+
     }
   }
 });

@@ -1,0 +1,29 @@
+<div class='container'>
+  <div class='passenger-form'>
+    <button type="button" class="btn btn-info btn-sm btn-block" {{action 'selectSeats'}}>Select different seats</button><br>
+    {{#each selected as |passenger index|}}
+      <form>
+        <h6>SeatNo:{{passenger.seatNo}}</h6>
+        <div class='form-group row'>
+          <div class='col-6'>
+            <label>Name</label>
+            {{input class='form-control form-control-sm' value=passenger.name}}
+          </div>
+          <div class='col-3'>
+            <label for='gender'>Gender</label><br>
+            <input type='radio' name='gender' onchange={{action 'setGender' 'MALE' index}}>Male
+            <input type='radio' name='gender' onchange={{action 'setGender' 'FEMALE' index}}>Female
+            <input type='radio' name='gender' onchange={{action 'setGender' 'OTHERS' index}}>Others
+          </div>
+          <div class='col-3'>
+            <label>DOB</label><br>
+            {{input type='date' value=passenger.dob max='2012-12-31' min='1950-01-01'}}
+          </div>
+        </div>
+      </form>
+    {{/each}}
+    <label for='transaction'>transaction_number</label>
+    {{input id='transaction' value=transaction}}
+    <button class='btn btn-success' {{action 'proceed'}}>Proceed to pay</button>
+  </div>
+</div>

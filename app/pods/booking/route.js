@@ -1,13 +1,14 @@
 import Ember from 'ember';
 import $ from 'jquery';
 export default Ember.Route.extend({
-  model(){
+  model(bId){
+    
     var datas;
     $.ajax({
       type:"POST",
       url:"/getbookings",
       async:false,
-      data:{bookingId:1},
+      data:{bookingId:bId.bookingId},
       success:function(data){
         datas= data;
       }

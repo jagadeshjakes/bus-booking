@@ -1,2 +1,9 @@
-{{#select-seats busId=2 tripId=2}}
-{{/select-seats}}
+{{#if toSelect}}
+  {{#select-seats selectPass=(action 'selectPassengers') seats=model}}
+  {{/select-seats}}
+{{/if}}
+
+{{#if toPassengers}}
+  {{#add-passengers viewBooking=(action 'viewBooking') selectSeats=(action 'selectSeats') seats=model selected=selected}}
+  {{/add-passengers}}
+{{/if}}
